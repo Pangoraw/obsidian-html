@@ -1037,9 +1037,10 @@ def ConvertMarkdownPageToHtmlPage(fo:'OH_File', pb, backlinkNode=None, log_level
     # ------------------------------------------------------------------
     extensions = [
         'abbr', 'attr_list', 'def_list', 
-        'fenced_code', 
+        'fenced_code',
         'md_in_html', 'tables', 'obs_footnote', 'obs_formatting', 
-        'codehilite', 
+        'codehilite',
+        'mdx_breakless_lists',
         'obs_toc', 'mermaid', 'callout', 'pymdownx.arithmatex']
     extension_configs = {
         'codehilite': {
@@ -1246,7 +1247,7 @@ def recurseTagList(tagtree, tagpath, pb, level):
         }
     }    
 
-    html_body = markdown.markdown(md, extensions=['extra', 'codehilite', 'obs_toc', 'mermaid', 'callout', 'pymdownx.arithmatex'], extension_configs=extension_configs)
+    html_body = markdown.markdown(md, extensions=['mdx_breakless_lists', 'extra', 'codehilite', 'obs_toc', 'mermaid', 'callout', 'pymdownx.arithmatex'], extension_configs=extension_configs)
 
     di = '<link rel="stylesheet" href="'+html_url_prefix+'/obs.html/static/taglist.css" />'
 
